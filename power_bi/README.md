@@ -11,14 +11,3 @@
 4. Modelar os relacionamentos conforme o [modelo dimensional](../modelagem/modelo_dimensional.md).
 5. Construir as visualizações.
 6. Salvar — os arquivos `.pbip`/`.Report`/`.SemanticModel` ficam prontos para commit.
-
-## Modelagem assistida via MCP (powerbi-modeling-mcp)
-Com o `.pbip` aberto no Power BI Desktop (ou direto na pasta do projeto via `ConnectFolder`, offline), o Claude pode criar/editar tabelas, relacionamentos, medidas DAX e grupos de cálculo diretamente no modelo semântico (TMDL) via `mcp__powerbi-modeling-mcp__*`, sem precisar repetir tudo manualmente na UI — acelera bastante a etapa de modelagem dentro do prazo de 4h.
-
-- `connection_operations` (`ListLocalInstances` + `Connect`, ou `ConnectFolder` apontando para esta pasta) — conectar à instância.
-- `table_operations` / `partition_operations` — criar tabelas e definir a fonte via expressão M.
-- `relationship_operations` — criar os relacionamentos fato↔dimensão.
-- `measure_operations` — criar as medidas DAX.
-- `model_operations` (`ExportTMDL`) — conferir o modelo resultante.
-
-**Importante:** essas ferramentas cobrem apenas o **modelo semântico** (tabelas/relacionamentos/medidas). O desenho dos **visuais e páginas do relatório** continua manual no Power BI Desktop.
