@@ -11,3 +11,7 @@
 4. Modelar os relacionamentos conforme o [modelo dimensional](../modelagem/modelo_dimensional.md).
 5. Construir as visualizações.
 6. Salvar — os arquivos `.pbip`/`.Report`/`.SemanticModel` ficam prontos para commit.
+
+## Diretriz de construção dos visuais
+- **Gráficos (barras, linhas, colunas, dispersão etc.):** usar sempre visuais **nativos** do Power BI. Mantém a interatividade completa (cross-filtering, drill-down, tooltips, seleção cruzada entre visuais).
+- **Cards, botões, ícones e demais elementos de interface:** construir em **SVG/HTML** (formas nativas com ícone SVG, medidas com "Image URL" retornando SVG em base64, ou text box formatado), em vez de depender de visuais customizados de terceiros — mais controle visual, sem dependências externas e mais leve/rápido para renderizar.
