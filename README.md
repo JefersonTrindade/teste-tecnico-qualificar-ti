@@ -14,8 +14,8 @@ Descrição breve do problema proposto e do objetivo da solução.
 ├── notebooks/
 │   └── tratamento_dados.ipynb   # notebook Python com o ETL
 ├── sql/                # scripts SQL (SQLite) de criação/carga do modelo dimensional
-├── modelagem/          # diagrama do modelo dimensional
-├── power_bi/           # arquivo/dashboard do Power BI
+├── modelagem/          # diagrama do modelo dimensional (Mermaid)
+├── power_bi/           # dashboard Power BI (.pbip)
 ├── abrir_jupyter.bat   # atalho para abrir o Jupyter Lab
 └── README.md
 ```
