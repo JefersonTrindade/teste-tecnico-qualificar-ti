@@ -13,7 +13,7 @@ Descrição breve do problema proposto e do objetivo da solução.
 │   └── tratados/       # saídas do ETL
 ├── notebooks/
 │   └── tratamento_dados.ipynb   # notebook Python com o ETL
-├── sql/                # scripts de criação/carga do modelo dimensional
+├── sql/                # scripts SQL (SQLite) de criação/carga do modelo dimensional
 ├── modelagem/          # diagrama do modelo dimensional
 ├── power_bi/           # arquivo/dashboard do Power BI
 ├── abrir_jupyter.bat   # atalho para abrir o Jupyter Lab
@@ -23,7 +23,7 @@ Descrição breve do problema proposto e do objetivo da solução.
 ## 3. Como executar
 1. Abrir o Jupyter Lab (`abrir_jupyter.bat` ou `jupyter lab` no ambiente Anaconda).
 2. Rodar `notebooks/tratamento_dados.ipynb` de ponta a ponta — gera os arquivos tratados em `dados/tratados/`.
-3. Rodar os scripts em `sql/` no SGBD utilizado para criar e carregar o modelo dimensional.
+3. Rodar os scripts em `sql/` (dialeto **SQLite**) para criar e carregar o modelo dimensional — validados em [sqliteonline.com](https://sqliteonline.com/) (selecionar motor SQLite).
 4. Abrir o arquivo do Power BI em `power_bi/` (dados atualizados a partir de `dados/tratados/`).
 
 ## 4. Modelo dimensional
