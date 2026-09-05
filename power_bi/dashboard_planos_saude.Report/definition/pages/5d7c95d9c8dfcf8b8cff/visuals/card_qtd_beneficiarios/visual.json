@@ -3,9 +3,9 @@
   "name": "card_qtd_beneficiarios",
   "position": {
     "x": 20,
-    "y": 20,
+    "y": 100,
     "z": 0,
-    "height": 140,
+    "height": 130,
     "width": 455,
     "tabOrder": 0
   },

@@ -25,6 +25,22 @@ table _Medidas
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Cabecalho SVG' =
+			VAR DataAtual = FORMAT(NOW(), "dd/mm/yyyy HH:mm")
+			RETURN
+			"data:image/svg+xml;utf8," &
+			"<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='90' viewBox='0 0 1920 90'>" &
+			"<rect width='1920' height='90' fill='#FFFFFF'/>" &
+			"<rect x='0' y='87' width='1920' height='3' fill='#1351B4'/>" &
+			"<circle cx='45' cy='45' r='26' fill='#1351B4'/>" &
+			"<path d='M 45 30 L 45 60 M 30 45 L 60 45' stroke='#FFFFFF' stroke-width='6' stroke-linecap='round'/>" &
+			"<text x='88' y='40' font-family='Segoe UI, sans-serif' font-size='24' font-weight='700' fill='#1351B4'>Dashboard de Utilizacao</text>" &
+			"<text x='88' y='64' font-family='Segoe UI, sans-serif' font-size='13' fill='#00A300' font-weight='600' letter-spacing='0.5'>PLANOS DE SAUDE  -  Beneficiarios . Atendimentos . Operadoras</text>" &
+			"<text x='1895' y='50' font-family='Segoe UI, sans-serif' font-size='12' fill='#555555' text-anchor='end'>Ultima atualizacao: " & DataAtual & "</text>" &
+			"</svg>"
+		lineageTag: 8f2a1c4d-6e3b-4a5f-9d7c-1b2e3f4a5c6d
+		dataCategory: ImageUrl
+
 	column Column1
 		dataType: string
 		isHidden

@@ -3,9 +3,9 @@
   "name": "card_valor_total",
   "position": {
     "x": 970,
-    "y": 20,
+    "y": 100,
     "z": 2000,
-    "height": 140,
+    "height": 130,
     "width": 455,
     "tabOrder": 2000
   },

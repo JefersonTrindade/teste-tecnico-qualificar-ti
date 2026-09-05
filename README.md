@@ -36,6 +36,11 @@ intencionais, o projeto:
 └── README.md
 ```
 
+A estrutura sugerida no enunciado (`dados/`, `notebooks/`, `scripts/`, `sql/`, `dashboard/`,
+`README.md`, `.gitignore`) foi adaptada em dois pontos: `power_bi/` no lugar de `dashboard/`
+(nome mais específico à ferramenta usada) e sem uma pasta `scripts/` separada, já que todo o
+código de tratamento está centralizado no notebook (não há scripts `.py` avulsos).
+
 ## 4. Como executar
 
 1. Abrir o Jupyter Lab (`abrir_jupyter.bat`, ou `jupyter lab` em um ambiente com pandas/numpy) e

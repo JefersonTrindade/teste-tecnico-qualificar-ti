@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "bar_especialidade",
   "position": {
-    "x": 20.263374485596767,
-    "y": 302.55144032921817,
+    "x": 20.666666666666355,
+    "y": 350.33333333320559,
     "z": 8000,
-    "height": 380,
+    "height": 340,
     "width": 930,
     "tabOrder": 8000
   },
@@ -42,11 +42,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Valor Total Atendimentos"
+                  "Property": "Qtd Atendimentos"
                 }
               },
-              "queryRef": "_Medidas.Valor Total Atendimentos",
-              "nativeQueryRef": "Valor Total Atendimentos"
+              "queryRef": "_Medidas.Qtd Atendimentos",
+              "nativeQueryRef": "Qtd Atendimentos"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "Valor Total Atendimentos"
+                "Property": "Qtd Atendimentos"
               }
             },
             "direction": "Descending"
@@ -87,6 +87,19 @@
             }
           }
         }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -96,7 +109,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Valor total por especialidade'"
+                  "Value": "'Atendimentos por especialidade'"
                 }
               }
             },

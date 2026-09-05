@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "col_operadora",
   "position": {
-    "x": 970.633744855967,
-    "y": 302.92181069958849,
+    "x": 970.66666666666663,
+    "y": 350.33333333320559,
     "z": 9000,
-    "height": 379.62962962962962,
-    "width": 929.62962962962956,
+    "height": 340,
+    "width": 930,
     "tabOrder": 9000
   },
   "visual": {

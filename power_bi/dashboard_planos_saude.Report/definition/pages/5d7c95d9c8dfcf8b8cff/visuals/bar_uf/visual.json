@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "bar_uf",
   "position": {
-    "x": 970.633744855967,
-    "y": 695.5144032921811,
+    "x": 970.66666666666663,
+    "y": 700.33333333320593,
     "z": 11000,
-    "height": 379.62962962962962,
-    "width": 929.62962962962956,
+    "height": 340,
+    "width": 930,
     "tabOrder": 11000
   },
   "visual": {

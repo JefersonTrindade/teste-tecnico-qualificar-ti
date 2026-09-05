@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "line_evolucao_mensal",
   "position": {
-    "x": 20.263374485596767,
-    "y": 694.977366255144,
+    "x": 20.666666666666355,
+    "y": 700.33333333320593,
     "z": 10000,
-    "height": 380,
+    "height": 340,
     "width": 930,
     "tabOrder": 10000
   },

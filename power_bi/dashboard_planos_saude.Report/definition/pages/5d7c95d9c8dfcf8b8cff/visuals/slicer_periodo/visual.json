@@ -3,10 +3,10 @@
   "name": "slicer_periodo",
   "position": {
     "x": 20,
-    "y": 175,
+    "y": 245.33333333333334,
     "z": 4000,
-    "height": 113,
-    "width": 455,
+    "height": 74.666666666666671,
+    "width": 454.66666666666669,
     "tabOrder": 4000
   },
   "visual": {
@@ -42,6 +42,26 @@
               "expr": {
                 "Literal": {
                   "Value": "'Between'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Data'"
                 }
               }
             }

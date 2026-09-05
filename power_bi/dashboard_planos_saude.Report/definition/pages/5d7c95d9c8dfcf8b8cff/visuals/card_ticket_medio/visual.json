@@ -3,9 +3,9 @@
   "name": "card_ticket_medio",
   "position": {
     "x": 1445,
-    "y": 20,
+    "y": 100,
     "z": 3000,
-    "height": 140,
+    "height": 130,
     "width": 455,
     "tabOrder": 3000
   },
