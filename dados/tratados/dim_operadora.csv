@@ -21,9 +21,9 @@ id_operadora,operadora
 264,Plena Assistência 264 - Unidade
 21,Saúde Planos 021
 22,Vida Saúde Integrada 022
-23,
+23,Operadora Não Informada
 24,Nacional Care 024
-25,
+25,Operadora Não Informada
 26,Mais Saúde Benefícios 026
 109,Saúde Saúde 109
 28,Integra Saúde 028
@@ -56,11 +56,11 @@ id_operadora,operadora
 56,Bem Estar Assistência 056
 57,Ideal Care 057
 58,Uni Assistência 058
-59,
+59,Operadora Não Informada
 60,Plena Serviços Médicos 060
 61,Nacional Saúde Integrada 061
 62,Essencial Assistência 062
-63,
+63,Operadora Não Informada
 64,Nova Vida Medical 064
 65,Integra Planos 065
 66,Cuidado Saúde 066
@@ -71,7 +71,7 @@ id_operadora,operadora
 71,Med Medical 071
 72,Total Saúde Brasil 072
 73,Vida Planos 073
-74,
+74,Operadora Não Informada
 76,Essencial Saúde Brasil 076
 77,Mais Saúde Planos 077
 78,Ideal Saúde Integrada 078
@@ -195,9 +195,9 @@ id_operadora,operadora
 205,Cuidado Care 205
 206,Med Benefícios 206
 207,Brasil Vida Plena 207
-208,
+208,Operadora Não Informada
 209,Vida Serviços Médicos 209
-210,
+210,Operadora Não Informada
 211,Total Medical 211
 212,Total Vida Plena 212
 213,Equilíbrio Vida Plena 213
@@ -227,7 +227,7 @@ id_operadora,operadora
 237,Viva Saúde Integrada 237
 238,Med Saúde Brasil 238
 240,Total Assistência 240
-241,
+241,Operadora Não Informada
 242,Integra Assistência 242
 244,Viva Saúde Integrada 244
 245,Regional Serviços Médicos 245
@@ -257,7 +257,7 @@ id_operadora,operadora
 274,Plena Assistência 274
 275,Uni Saúde Brasil 275
 276,Viva Care 276
-277,
+277,Operadora Não Informada
 279,Vida Benefícios 279
 280,Total Saúde 280
 281,Nacional Care 281
@@ -268,10 +268,10 @@ id_operadora,operadora
 287,Cuidado Saúde Brasil 287
 288,Horizonte Saúde Brasil 288
 289,Horizonte Care 289
-290,
+290,Operadora Não Informada
 291,Bem Estar Assistência 291
 9999,Plena Care 292
-293,
+293,Operadora Não Informada
 294,Cuidado Planos 294
 295,Viva Planos 295
 296,Nova Vida Saúde 296
