@@ -12,6 +12,11 @@ Scripts numerados na ordem de execução:
 - `02_ddl_fatos.sql` — criação da tabela de fato
 - `03_carga.sql` — carga dos dados tratados via `.import` (CLI do SQLite)
 - `04_consultas_validacao.sql` — validação de carga + as 4 consultas de negócio pedidas no teste
+- `dashboard_planos_saude.db` — banco SQLite já criado e populado a partir dos scripts acima,
+  incluído no repositório para permitir inspeção direta (extensão SQLite do VS Code, DB Browser
+  for SQLite, `sqlite3` CLI etc.) sem precisar rodar a carga manualmente. Gerado a partir dos
+  mesmos CSVs de `../dados/tratados/` — para reproduzir do zero, rode os 4 scripts na ordem acima
+  contra um banco novo.
 
 ## Como reproduzir
 
