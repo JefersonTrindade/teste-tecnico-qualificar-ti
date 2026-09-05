@@ -1,0 +1,21 @@
+relationship 40a99418-4604-475a-bb83-b79a6cb19fae
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_tempo.data
+	toColumn: LocalDateTable_d0c411bd-eb4f-4d09-9537-67657a20ecd9.Date
+
+relationship AutoDetected_0a067a88-2ca9-416f-9046-b312cccdb6a6
+	fromColumn: fato_atendimento.id_beneficiario
+	toColumn: dim_beneficiario.id_beneficiario
+
+relationship AutoDetected_e9d39dc8-05f2-4dd7-8127-caac6af1aa25
+	fromColumn: fato_atendimento.id_operadora
+	toColumn: dim_operadora.id_operadora
+
+relationship AutoDetected_3a742948-f549-4097-b8f5-70042cb00b14
+	fromColumn: fato_atendimento.id_especialidade
+	toColumn: dim_especialidade.id_especialidade
+
+relationship bcaa3086-6cee-8107-ac6a-508751c44ff2
+	fromColumn: fato_atendimento.data
+	toColumn: dim_tempo.data
+

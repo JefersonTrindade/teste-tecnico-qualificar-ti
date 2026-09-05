@@ -8,10 +8,10 @@ __pycache__/
 .venv/
 venv/
 
-# Power BI (arquivos temporários/cache)
+# Power BI (arquivos temporários/cache/configuracao local por maquina)
 *.pbix.bak
 ~$*.pbix
-.pbi/cache/
+**/.pbi/
 
 # Excel temp
 ~$*.xlsx

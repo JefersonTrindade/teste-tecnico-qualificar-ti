@@ -1,0 +1,32 @@
+table dim_operadora
+	lineageTag: dfe06df4-45f4-43e9-8d44-e0f4c42bbae9
+
+	column id_operadora
+		dataType: int64
+		formatString: 0
+		lineageTag: 7997d5c1-5e05-401a-b5d6-a7a2a8dc1a9d
+		summarizeBy: none
+		sourceColumn: id_operadora
+
+		annotation SummarizationSetBy = Automatic
+
+	column operadora
+		dataType: string
+		lineageTag: 03b95ba7-3165-49e8-ab3f-51b965c17d42
+		summarizeBy: none
+		sourceColumn: operadora
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_operadora = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("E:\Documents\Processo Seletivo\Teste\dados\tratados\dim_operadora.csv"),[Delimiter=",", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id_operadora", Int64.Type}, {"operadora", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

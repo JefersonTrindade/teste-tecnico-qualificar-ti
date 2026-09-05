@@ -1,0 +1,49 @@
+table _Medidas
+	lineageTag: f67b3e61-8512-4c04-9529-897ec223d034
+
+	measure 'Qtd Beneficiarios' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(dim_beneficiario[id_beneficiario]),
+			    dim_beneficiario[id_beneficiario] <> -1
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 3e1198dd-c349-4392-b6ba-b5422ec84233
+
+	measure 'Qtd Atendimentos' = COUNTROWS(fato_atendimento)
+		formatString: #,0
+		lineageTag: 7b94c251-ac34-419e-977c-9116f6605bdb
+
+	measure 'Valor Total Atendimentos' = SUM(fato_atendimento[valor])
+		formatString: #,0
+		lineageTag: 79d4a19d-b1b1-4b04-b476-247ef265d409
+
+	measure 'Ticket Medio' = DIVIDE([Valor Total Atendimentos], [Qtd Atendimentos])
+		lineageTag: c1674e66-d12b-407a-9ead-196315d5d083
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column1
+		dataType: string
+		isHidden
+		lineageTag: 7b92b2e5-1159-4007-bdeb-a098c9f27095
+		summarizeBy: none
+		sourceColumn: Column1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Medidas = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

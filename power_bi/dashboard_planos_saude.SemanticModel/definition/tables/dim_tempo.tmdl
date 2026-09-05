@@ -1,0 +1,83 @@
+table dim_tempo
+	lineageTag: 8349737c-747a-4af7-889c-a07eececc825
+
+	column data
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2cdedec1-09c3-48d2-9915-620ee1ec4465
+		summarizeBy: none
+		sourceColumn: data
+
+		variation Variation
+			isDefault
+			relationship: 40a99418-4604-475a-bb83-b79a6cb19fae
+			defaultHierarchy: LocalDateTable_d0c411bd-eb4f-4d09-9537-67657a20ecd9.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d5f8696-c6b0-40f9-ad4d-094dc200aa6c
+		summarizeBy: sum
+		sourceColumn: ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column trimestre
+		dataType: int64
+		formatString: 0
+		lineageTag: e2890373-5ca9-4a94-837d-6ec0f9555736
+		summarizeBy: sum
+		sourceColumn: trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		lineageTag: bc2fc76b-8054-47ed-96b4-03717f81d2ad
+		summarizeBy: sum
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_mes
+		dataType: string
+		lineageTag: 81fad438-2ba7-4c64-bbc2-2383f77303a6
+		summarizeBy: none
+		sourceColumn: nome_mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column dia
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d330387-f760-4483-9f52-94e803d941c2
+		summarizeBy: sum
+		sourceColumn: dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column dia_semana
+		dataType: string
+		lineageTag: 0b1455ab-ed5b-4dc4-9e19-2b4aaab5c39b
+		summarizeBy: none
+		sourceColumn: dia_semana
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_tempo = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("E:\Documents\Processo Seletivo\Teste\dados\tratados\dim_tempo.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"data", type date}, {"ano", Int64.Type}, {"trimestre", Int64.Type}, {"mes", Int64.Type}, {"nome_mes", type text}, {"dia", Int64.Type}, {"dia_semana", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,26 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBI_QueryOrder = ["dim_beneficiario","dim_especialidade","dim_operadora","dim_tempo","fato_atendimento","_Medidas"]
+
+ref table dim_beneficiario
+ref table dim_especialidade
+ref table dim_operadora
+ref table dim_tempo
+ref table DateTableTemplate_32910c73-14bf-46b0-9d3d-a217d2805927
+ref table LocalDateTable_d0c411bd-eb4f-4d09-9537-67657a20ecd9
+ref table fato_atendimento
+ref table _Medidas
+
+ref cultureInfo pt-BR
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "dashboard_planos_saude"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d411b372-6b58-4602-9345-c9a0dc55c2cd"
+  }
+}

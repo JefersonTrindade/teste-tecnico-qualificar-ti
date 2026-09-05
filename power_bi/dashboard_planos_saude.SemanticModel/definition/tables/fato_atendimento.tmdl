@@ -1,0 +1,72 @@
+table fato_atendimento
+	lineageTag: b6403dd2-fd11-45ef-9ab0-3e89a014aea7
+
+	column id_atendimento
+		dataType: int64
+		formatString: 0
+		lineageTag: b867d0ba-0382-4554-902d-9a46d1c279ac
+		summarizeBy: sum
+		sourceColumn: id_atendimento
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_beneficiario
+		dataType: int64
+		formatString: 0
+		lineageTag: 1790dd30-1f53-4553-96b0-2eb86c9c1119
+		summarizeBy: none
+		sourceColumn: id_beneficiario
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_operadora
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ea7be5b-3a2c-4d3f-89d2-2ded5e193a23
+		summarizeBy: none
+		sourceColumn: id_operadora
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_especialidade
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b3fb44f-7ae5-45b4-8286-2388cc033189
+		summarizeBy: none
+		sourceColumn: id_especialidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column data
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fa48c2e9-1453-4147-8372-75e257826e6e
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column valor
+		dataType: double
+		formatString: 0.00
+		lineageTag: 4a3d9b9d-c5ab-423b-be2a-ae5f43496df5
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fato_atendimento = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("E:\Documents\Processo Seletivo\Teste\dados\tratados\fato_atendimento.csv"),[Delimiter=",", Columns=6, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id_atendimento", Int64.Type}, {"id_beneficiario", Int64.Type}, {"id_operadora", Int64.Type}, {"id_especialidade", Int64.Type}, {"data", type date}}),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Changed Type", {{"valor", type number}}, "en-US")
+				in
+				    #"Changed Type with Locale"
+
+	annotation PBI_ResultType = Table
+

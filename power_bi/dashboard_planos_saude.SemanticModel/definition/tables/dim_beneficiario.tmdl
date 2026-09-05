@@ -1,0 +1,67 @@
+table dim_beneficiario
+	lineageTag: 201dcc1a-fb11-4bbf-bc5b-23ae82205213
+
+	column id_beneficiario
+		dataType: int64
+		formatString: 0
+		lineageTag: 5bda973b-2fb1-4924-a254-c0c34590cd12
+		summarizeBy: none
+		sourceColumn: id_beneficiario
+
+		annotation SummarizationSetBy = Automatic
+
+	column sexo
+		dataType: string
+		lineageTag: f41aeceb-fc03-4b2f-b48a-841b87b39313
+		summarizeBy: none
+		sourceColumn: sexo
+
+		annotation SummarizationSetBy = Automatic
+
+	column idade
+		dataType: double
+		formatString: 0
+		lineageTag: 1b8572de-cc0e-4f39-9345-b66ad476bd23
+		summarizeBy: none
+		sourceColumn: idade
+
+		annotation SummarizationSetBy = Automatic
+
+	column faixa_etaria
+		dataType: string
+		lineageTag: 57e32a11-0b82-487c-97fe-57bed62c4b72
+		summarizeBy: none
+		sourceColumn: faixa_etaria
+
+		annotation SummarizationSetBy = Automatic
+
+	column uf
+		dataType: string
+		lineageTag: 4f386f0a-9021-4ffe-ba07-5a0f5fecf222
+		summarizeBy: none
+		sourceColumn: uf
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_operadora
+		dataType: int64
+		formatString: 0
+		lineageTag: a592516f-fd0b-43c7-af91-c8501e3cac40
+		summarizeBy: none
+		sourceColumn: id_operadora
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_beneficiario = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("E:\Documents\Processo Seletivo\Teste\dados\tratados\dim_beneficiario.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id_beneficiario", Int64.Type}, {"sexo", type text}, {"faixa_etaria", type text}, {"uf", type text}, {"id_operadora", Int64.Type}}),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Changed Type", {{"idade", type number}}, "en-US")
+				in
+				    #"Changed Type with Locale"
+
+	annotation PBI_ResultType = Table
+
