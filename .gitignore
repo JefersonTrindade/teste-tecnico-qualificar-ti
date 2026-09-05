@@ -16,6 +16,10 @@ venv/
 # Excel temp
 ~$*.xlsx
 
+# Atalho local de conveniencia (assume Anaconda no caminho padrao do Windows,
+# nao e um entregavel do teste nem portavel entre maquinas)
+abrir_jupyter.bat
+
 # OS
 Thumbs.db
 .DS_Store

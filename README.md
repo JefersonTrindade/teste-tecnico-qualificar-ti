@@ -32,7 +32,6 @@ intencionais, o projeto:
 ├── sql/                  # scripts SQL (SQLite): DDL, carga e consultas de validação
 ├── modelagem/            # diagrama do modelo dimensional (Mermaid) e convenções
 ├── power_bi/             # dashboard Power BI (.pbip) e diretrizes visuais
-├── abrir_jupyter.bat     # atalho para abrir o Jupyter Lab (ambiente Anaconda)
 └── README.md
 ```
 
@@ -43,7 +42,7 @@ código de tratamento está centralizado no notebook (não há scripts `.py` avu
 
 ## 4. Como executar
 
-1. Abrir o Jupyter Lab (`abrir_jupyter.bat`, ou `jupyter lab` em um ambiente com pandas/numpy) e
+1. Abrir o Jupyter Lab (`jupyter lab` em um ambiente com pandas/numpy) e
    rodar `notebooks/tratamento_dados.ipynb` de ponta a ponta — gera os arquivos tratados em
    `dados/tratados/`.
 2. Criar um banco SQLite e rodar, em ordem, os scripts de `sql/`:
