@@ -19,3 +19,8 @@ venv/
 # OS
 Thumbs.db
 .DS_Store
+
+# Material do processo seletivo (nao publicar enunciado da empresa)
+Teste_Tecnico_Analista_BI_Pleno.docx
+Teste_Tecnico_Analista_BI_Pleno.pdf
+~$*.docx
