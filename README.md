@@ -72,6 +72,11 @@ sentinela para FKs órfãs) em [`modelagem/modelo_dimensional.md`](modelagem/mod
   contribui para nenhum dos indicadores pedidos.
 - **`.pbip` em vez de `.pbix`:** permite versionar o dashboard como texto (TMDL/JSON) no Git,
   atendendo ao requisito de rastreabilidade do histórico de desenvolvimento.
+- **Conversão de tipo com localidade explícita no Power Query:** a detecção automática de tipo
+  do Power BI interpretou o `.` decimal de `valor` (`fato_atendimento`) e `idade`
+  (`dim_beneficiario`) como separador de milhar, inflando ambos os campos em ~100x. Corrigido
+  fixando a conversão para número decimal com localidade `en-US` diretamente a partir do texto
+  de origem — nunca convertendo para inteiro antes.
 
 ## 7. Observações relevantes sobre o tratamento dos dados
 
@@ -95,10 +100,35 @@ Resumo dos principais achados (detalhamento completo, com contagens exatas, no n
   `Beneficiarios.csv` são numéricos e positivos mas não existem em `Operadoras.csv` — tratado
   como órfão real de integridade (não redutível a um problema de formatação) e direcionado ao
   sentinela.
+- **Concentração no sentinela "Não Identificada" (dashboard):** no visual "Gastos por
+  operadora", o bucket `id_operadora = -1` aparece com valor bem maior que qualquer operadora
+  legítima isolada. Isso não é uma operadora real — é a soma de duas fontes de erro distintas
+  caindo na mesma chave: (1) atendimentos cujo `id_beneficiario` era inválido/órfão no arquivo de
+  origem (~3.700 registros, redirecionados ao beneficiário sentinela, que por definição tem
+  `id_operadora = -1`) e (2) atendimentos de beneficiários válidos cujo `id_operadora` de origem
+  era inválido ou não existia em `Operadoras.csv`. Optei por preservar esses valores nas métricas
+  agregadas (em vez de descartar) porque afetam o total financeiro real, ao custo de misturar as
+  duas causas quando o dado é quebrado por operadora.
 
 ## 8. Itens não implementados / abordagem proposta
 
-- *(preencher ao final, caso algo fique de fora do prazo de 4h)*
+- **Cards em SVG/HTML:** a diretriz inicial (`power_bi/README.md`) previa cards/ícones em
+  SVG/HTML em vez de visuais nativos. Por restrição de tempo, os 4 cards de KPI foram
+  implementados como visual **Cartão** nativo, formatado (cor, fundo, borda) em vez de SVG —
+  abordagem mais rápida e ainda alinhada à paleta de cores definida. Os gráficos seguiram a
+  diretriz original (sempre nativos).
+- **Tabelas de calendário automáticas do Power BI:** a opção "Data/Hora automática" do Power BI
+  Desktop recria tabelas de calendário ocultas (`LocalDateTable_*`, `DateTableTemplate_*`)
+  redundantes com `dim_tempo` sempre que o arquivo é reaberto. Foram removidas manualmente uma
+  vez, mas voltaram ao reabrir o Desktop. Não afetam a funcionalidade (ficam ocultas e os
+  relacionamentos corretos com `dim_tempo` continuam ativos), mas o ideal seria desabilitar essa
+  opção em Arquivo → Opções e Configurações → Opções → Carregamento de Dados (Arquivo Atual)
+  antes de reabrir o projeto.
+- **Tema de cores customizado do relatório:** as cores da identidade ANS
+  (`power_bi/paleta_cores.md`) foram aplicadas diretamente em cada visual (cards e gráficos), em
+  vez de um arquivo de tema (`.json`) registrado em `StaticResources/RegisteredResources/` — mais
+  rápido de implementar com segurança dentro do prazo, ao custo de precisar repetir a cor em cada
+  visual em vez de centralizá-la.
 
 ## 9. Entregáveis
 
@@ -107,6 +137,6 @@ Resumo dos principais achados (detalhamento completo, com contagens exatas, no n
 - [x] Arquivos resultantes do ETL (`dados/tratados/`)
 - [x] Diagrama do modelo dimensional
 - [x] Scripts SQL
-- [ ] Arquivo/dashboard do Power BI
+- [x] Arquivo/dashboard do Power BI
 - [x] README.md
 - [x] Repositório Git com histórico de desenvolvimento
